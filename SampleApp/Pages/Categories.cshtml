@@ -1,0 +1,117 @@
+﻿@page "/categories"
+@using SampleApp.Models
+@using System.Threading.Tasks
+@using System.Collections.Generic
+@using System.Net.Http
+@using System.Linq
+
+<h1>Categories</h1>
+@*<p>Current count: @Basic.Count</p>
+    <button class="btn btn-primary" onclick="@IncrementCount">Click me</button> <br />
+    <button onclick="@Start">launch tushstories</button>*@
+
+<ul>
+
+    @if (Cats == null || Articles == null)
+    {
+        <li>Loading...</li>
+    }
+    else
+    {
+        @foreach (var item in Cats)
+        {
+
+            <li>
+
+            @item.Title <br/>
+
+                <small>Articles Under This Category</small> <br/>
+
+                @{ 
+                    var itemsArt = Articles.Where(x => x.CategoryId == item.Id).ToList();
+                }
+
+                <ul>
+                @if(itemsArt != null)
+                {
+                    @foreach (var art in itemsArt)
+                    {
+                        <li>
+
+                            @{ 
+                                var link = "articles/" + art.Id;
+                            }
+                            <NavLink  href="@link" Match=NavLinkMatch.All>
+                                @art.Title
+                            </NavLink>
+
+                           </li>
+                    }
+                }
+                else
+                {
+                    <li>No Articles Here Yet</li>
+                }
+                    </ul>
+
+
+
+            </li>
+
+        }
+    }
+
+
+</ul>
+
+
+
+
+
+
+
+@functions {
+   // int currentCount = 0;
+
+
+public List<Category> Cats {get;set;}
+
+    public List<Article> Articles {get;set;}
+
+    protected override async Task OnInitAsync()
+    {
+
+    try
+    {
+    var service = Basic.ResolveService<SampleApp.Services.ICategoryService>
+        ();
+        Cats =  await service.GetCategoriesAsync();
+
+
+
+     var artService = Basic.ResolveService<SampleApp.Services.IArticleService>();
+    Articles = await artService.GetArticlesAsync();
+
+
+        }
+        catch
+        {
+        }
+
+
+        }
+
+
+
+
+        void IncrementCount()
+        {
+        Basic.Count++;
+        }
+
+        void Start()
+        {
+
+        System.Diagnostics.Process.Start("open", "https://www.tushstories.com");
+        }
+        }

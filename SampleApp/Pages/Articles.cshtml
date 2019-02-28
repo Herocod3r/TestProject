@@ -1,0 +1,56 @@
+﻿@page "/articles/{Id:int}"
+
+@using SampleApp.Models
+@using System.Threading.Tasks
+@using System.Collections.Generic
+
+
+
+@if (Data is null)
+{
+    <strong>Loading....</strong>
+}
+else
+{
+    <h4>@Data.Title</h4>
+    <span>Posted On: <strong>@Data.Date.ToShortDateString()</strong> </span>
+
+    <hr/>
+
+
+    <p style="background:WhiteSmoke;color:black;">
+        @Data.Body
+    </p>
+}
+
+
+@functions {
+
+public Article Data {get;set;}
+
+[Parameter]
+ int Id {get;set;}
+
+ protected override async Task OnInitAsync()
+    {
+
+    try
+    {
+
+
+
+     var artService = Basic.ResolveService<SampleApp.Services.IArticleService>();
+    Data = await artService.GetArticle(Id);
+
+
+    }
+    catch
+    {
+    }
+
+
+    }
+
+
+
+    }
