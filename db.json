@@ -1,0 +1,31 @@
+{
+    "Categories" : 
+    [
+        {
+            "Id" : 1,
+            "Title":"Stories"
+        },
+        {
+            "Id" :2,
+            "Title":"General"
+        }
+    ],
+    "Articles" : 
+    [
+        {
+            "Id":1,
+            "Title" :"Local Man Killed In Fire",
+            "Categore_Id": 1,
+            "Body" :"A drunk angry man mistankly set himself ablaze in house in New York",
+            "Date":"2019-02-28T18:25:43.511Z"
+        },
+        {
+            "Id":2,
+            "Title":"Nigeria Decides",
+            "Categore_Id":2,
+            "Body" :"The people of Nigeria have elected President Buhari for a second term",
+            "Date":"2019-02-28T18:25:43.511Z"
+        }
+    ]
+
+}
