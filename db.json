@@ -1,30 +1,30 @@
 {
-    "Categories" : 
+    "categories" : 
     [
         {
-            "Id" : 1,
-            "Title":"Stories"
+            "id" : 1,
+            "title":"Stories"
         },
         {
-            "Id" :2,
-            "Title":"General"
+            "id" :2,
+            "title":"General"
         }
     ],
-    "Articles" : 
+    "articles" : 
     [
         {
-            "Id":1,
-            "Title" :"Local Man Killed In Fire",
-            "Categore_Id": 1,
+            "id":1,
+            "title" :"Local Man Killed In Fire",
+            "category_id": 1,
             "Body" :"A drunk angry man mistankly set himself ablaze in house in New York",
             "Date":"2019-02-28T18:25:43.511Z"
         },
         {
-            "Id":2,
-            "Title":"Nigeria Decides",
-            "Categore_Id":2,
-            "Body" :"The people of Nigeria have elected President Buhari for a second term",
-            "Date":"2019-02-28T18:25:43.511Z"
+            "id":2,
+            "title":"Nigeria Decides",
+            "category_id":2,
+            "body" :"The people of Nigeria have elected President Buhari for a second term",
+            "date":"2019-02-28T18:25:43.511Z"
         }
     ]
 
